@@ -84,7 +84,7 @@ export const asyncRouterMap = [
   {
     path: '/terminal',
     component: Layout,
-    redirect: '/example/list',
+    redirect: '/terminal/list',
     name: 'Terminal',
     meta: {
       title: 'Terminal',
@@ -92,6 +92,12 @@ export const asyncRouterMap = [
     },
     children: [
       {
+        path: 'list',
+        component: () => import('@/views/terminal/list'),
+        name: 'TerminalList',
+        meta: { title: 'Terminal List', icon: 'list' }
+      },
+      {
         path: 'create',
         component: () => import('@/views/example/create'),
         name: 'CreateArticle',
@@ -103,26 +109,26 @@ export const asyncRouterMap = [
         name: 'EditArticle',
         meta: { title: 'editArticle', noCache: true },
         hidden: true
-      },
-      {
-        path: 'list',
-        component: () => import('@/views/example/list'),
-        name: 'ArticleList',
-        meta: { title: 'articleList', icon: 'list' }
       }
     ]
   },
 
   {
-    path: '/admin',
+    path: '/user/admin',
     component: Layout,
-    redirect: '/example/list',
-    name: 'Admin',
+    redirect: '/user/admin/list',
+    name: 'User',
     meta: {
-      title: 'Admin',
+      title: 'User',
       icon: 'personal'
     },
     children: [
+      {
+        path: '/admin/list',
+        component: () => import('@/views/user/admin/list'),
+        name: 'AdminList',
+        meta: { title: 'Admin List', icon: 'list' }
+      },
       {
         path: 'create',
         component: () => import('@/views/example/create'),
@@ -135,12 +141,6 @@ export const asyncRouterMap = [
         name: 'EditArticle',
         meta: { title: 'editArticle', noCache: true },
         hidden: true
-      },
-      {
-        path: 'list',
-        component: () => import('@/views/example/list'),
-        name: 'ArticleList',
-        meta: { title: 'articleList', icon: 'list' }
       }
     ]
   },
@@ -148,13 +148,19 @@ export const asyncRouterMap = [
   {
     path: '/system',
     component: Layout,
-    redirect: '/example/list',
+    redirect: '/system/setting/list',
     name: 'System',
     meta: {
       title: 'System',
       icon: 'setting'
     },
     children: [
+      {
+        path: 'list',
+        component: () => import('@/views/system/setting/list'),
+        name: 'SettingList',
+        meta: { title: 'Setting List', icon: 'list' }
+      },
       {
         path: 'create',
         component: () => import('@/views/example/create'),
@@ -167,12 +173,6 @@ export const asyncRouterMap = [
         name: 'EditArticle',
         meta: { title: 'editArticle', noCache: true },
         hidden: true
-      },
-      {
-        path: 'list',
-        component: () => import('@/views/example/list'),
-        name: 'ArticleList',
-        meta: { title: 'articleList', icon: 'list' }
       }
     ]
   },

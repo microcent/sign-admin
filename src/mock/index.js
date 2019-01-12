@@ -1,6 +1,9 @@
 import Mock from 'mockjs'
 import loginAPI from './login'
 import articleAPI from './article'
+import terminalAPI from './terminal'
+import userAPI from './user'
+import systemAPI from './system'
 import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
 
@@ -29,6 +32,17 @@ Mock.mock(/\/article\/detail/, 'get', articleAPI.getArticle)
 Mock.mock(/\/article\/pv/, 'get', articleAPI.getPv)
 Mock.mock(/\/article\/create/, 'post', articleAPI.createArticle)
 Mock.mock(/\/article\/update/, 'post', articleAPI.updateArticle)
+
+// 终端相关
+Mock.mock(/\/terminal\/list/, 'get', terminalAPI.getList)
+Mock.mock(/\/terminal\/detail/, 'get', terminalAPI.getTerminal)
+Mock.mock(/\/terminal\/update/, 'post', terminalAPI.updateTerminal)
+
+// 用户相关
+Mock.mock(/\/user\/admin\/list/, 'get', userAPI.getAdminList)
+
+// 系统相关
+Mock.mock(/\/system\/setting\/list/, 'get', systemAPI.getSettingList)
 
 // 搜索相关
 Mock.mock(/\/search\/user/, 'get', remoteSearchAPI.searchUser)
